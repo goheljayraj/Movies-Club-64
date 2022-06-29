@@ -297,20 +297,20 @@ a{
 }
 
 
-/*         LATEST MOVIES             */
-#latest{
+/*         toprated MOVIES             */
+#toprated{
     max-width: 1170px;
     margin: 30px auto;
     width: 100%;
     /*background-color: #969696;*/
 }
-.latest-heading{
+.toprated-heading{
     width: 100%;
     padding: 10px 20px;
     background-color: #0e0e0ec2;
     border: 1px solid #161616b8;
 }
-.latest-heading h1, .popular-heading h1{
+.toprated-heading h1, .popular-heading h1{
     color: #dadada;
     font-size: 1.3rem;
     font-weight: 600;
@@ -330,6 +330,7 @@ a{
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 35px;
     margin: 20px 0px;
+
 
 
 }
@@ -394,7 +395,7 @@ footer .logo img{
 /* RESOPONSIVE.................... */
 
 @media (max-width: 1200px) {
-    #main-slider, #latest, .slider-btn{
+    #main-slider, #toprated, .slider-btn{
         width: 90%;
     }
     .menu li a{
