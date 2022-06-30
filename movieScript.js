@@ -1,17 +1,91 @@
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const mID = urlParams.get('id');
+console.log(mID);
+
 const API_KEY = 'api_key=a86f1ad1d039e27d489a36607616522f';
-const BASE_URL = 'https://api.themoviedb.org/3';
-const URL = 'https://api.themoviedb.org/3/movie/453395/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1';
+const URL = 'https://api.themoviedb.org/3/movie/'+mID+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const main = document.getElementById('swiper-wrapper');
 let latestPages;
 let topPages;
+
+const bannerMovieURL = 'https://api.themoviedb.org/3/movie/'+mID+'?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US';
+
+
+getBannerMovie(bannerMovieURL)
+function getBannerMovie(url){
+    fetch(url).then(res => res.json()).then(bannerData =>{
+        console.log(bannerData);
+        function giveGenre(i){
+            if(i<bannerData.genres.length) return bannerData.genres[i].name;
+            else return "";
+        }
+
+        document.getElementById('movie-banner').innerHTML = `
+        <!--    Banner Image-->
+         <div class="banner-img">
+            <img src="https://image.tmdb.org/t/p/w500${bannerData.backdrop_path}" alt="${bannerData.title}">
+            </div>
+         <!--    Banner Content-->
+         <div class="banner-container">
+        <div class="title-container">
+            <div class="movie-title">
+                <h1>${bannerData.title}</h1>
+            </div>
+            <h3 style="margin-top: 10px; color: grey; ">${bannerData.tagline}</h3>
+            <div class="release-date" >Release Date: ${bannerData.release_date}</div>
+
+            <span class="language">English</span>
+        </div>
+
+        <div class="about-movie">
+            <div class="rating">
+                <img src="res/imdb.png" alt=""/>
+                <span class="val" style="color: ${getColor(bannerData.vote_average)}">${bannerData.vote_average.toFixed(1)}</span>
+            </div>
+            <div class="category">
+                Category:
+                
+                    <a href="">${giveGenre(0)}</a>
+                    <a href="">${giveGenre(1)}</a>
+                    <a href="">${giveGenre(2)}</a>
+                    <a href="">${giveGenre(3)}</a>
+                    <a href="">${giveGenre(4)}</a>
+                  
+                
+            </div>
+
+        </div>
+        </div>
+        `;
+
+        document.getElementById('overview-content').innerHTML = `${bannerData.overview}`;
+
+    })
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        Related Movies..................
 getMovies(URL)
 function getMovies(url){
     fetch(url).then(res => res.json()).then(data =>{
         showMovies(data.results);
-        latestPages = data.total_pages;
-        console.log(data);
-        console.log(latestPages)
+
     })
 }
 
@@ -19,8 +93,8 @@ function showMovies(data){
     main.innerHTML = ' ';
     data.forEach(movie =>{
 
-        const{title, poster_path, vote_average, release_date, genre_ids} = movie;
-        console.log(title);
+        const{id,title, poster_path, vote_average, release_date, genre_ids} = movie;
+
         const movieEl = document.createElement("div");
         movieEl.classList.add('swiper-slide')
         movieEl.innerHTML = `
@@ -32,16 +106,17 @@ function showMovies(data){
         <div class="main-slider-txt">
             <span class="quality">Full HD</span>
             <div class="bottom-text">
-                <div class="movie-name">
+               <div class="movie-name">
 <!--                    <span>2021</span>-->
-                    <strong>${release_date} : ${title}</strong>
+                  <a href="movie.html?id=${id}">  <strong>${release_date} : ${title}</strong> </a>
                 </div>
 
                 <div class="category-rating">
                     <div class="category">
-                    <a href="">${getGenre(genre_ids[0])}</a>
+                    <a href="">${getGenre(genre_ids[0])}</a> 
                     <a href="">${getGenre(genre_ids[1])}</a> 
                     <a href="">${getGenre(genre_ids[2])}</a>
+                    <a href="">${getGenre(genre_ids[3])}</a>
                     </div>
                         
                     <div class="rating">
@@ -84,4 +159,11 @@ function getGenre(id){
         return "";
     }
     else return genreName;
+}
+
+function checkGenreName(genrecheck){
+    if(genrecheck==undefined){
+        return "";
+    }
+    else return genrecheck;
 }
