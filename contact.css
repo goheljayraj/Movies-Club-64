@@ -1,0 +1,107 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url("res/contact-background.jpg");
+    /*object-fit: cover;*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    /*background-attachment: fixed;*/
+    width: 100%;
+    height: 100%;
+}
+.main-container{
+    background-color: rgba(0,0,0,0.8);
+    width: 100vw;
+    height: 100vh;
+
+}
+.contact-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*background-color: #dfdfdf;*/
+    margin: 50px;
+}
+.title{
+    color: white;
+    font-size: xxx-large;
+    font-family: "Baskerville Old Face";
+}
+.phone{
+    margin-top: 30px;
+    color: orangered;
+    font-weight: bold;
+}
+.phone span{
+    color: #dadada;
+}
+.email{
+    margin-top: 10px;
+    color: orangered;
+    font-weight: bold;
+}
+.email a{
+    text-decoration: none;
+    color: #dadada;
+}
+.address{
+    margin-top: 10px;
+    color: orangered;
+    font-weight: bold;
+}
+.address span{
+    color: #dadada;
+}
+
+.form-container{
+    margin-top: 10px;
+    display:flex;
+    /*background-color: #3e3c3c;*/
+    width: 800px;
+    height: 200px;
+}
+.form-left{
+    display: flex;
+    flex-direction: column;
+
+}
+input[type=text]{
+    width: 350px;
+    padding: 12px 20px;
+    margin: 8px 25px;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+.name label, .ph label, .em label{
+    color: #dfdfdf;
+}
+.from-right .message textarea{
+    height: 154px;
+    width: 350px;
+    padding: 12px 20px;
+    margin: 8px 25px;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+form .submit-button{
+    padding: 2px;
+}
+input[type=submit] {
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 120px;
+    margin-top: -15px;
+}
