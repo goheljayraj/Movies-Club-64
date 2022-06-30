@@ -559,7 +559,7 @@ footer .logo img{
 }
 .title-container{
     width: 100%;
-    max-width: 500px;
+    max-width: 900px;
     display: flex;
     flex-direction: column;
     /*background-color: #3e3c3c;*/
@@ -582,7 +582,7 @@ footer .logo img{
     padding-top: 20px;
     font-size: 1rem;
     font-weight: 600;
-    color: darkgrey;
+    color: #dadada;
 
 }
 .about-movie .category{
@@ -598,12 +598,12 @@ footer .logo img{
     color: red;
 }
 .title-container .language{
-    background-color: #434242;
+    /*background-color: #434242;*/
     border-radius: 5px;
     color: #dadada;
-    margin-top: 10px;
-    width: 70px;
-    padding: 3px 5px;
+    margin-top: 5px;
+    /*width: 70px;*/
+
 
 }
 .overview{

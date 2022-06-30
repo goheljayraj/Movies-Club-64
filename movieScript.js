@@ -33,10 +33,10 @@ function getBannerMovie(url){
             <div class="movie-title">
                 <h1>${bannerData.title}</h1>
             </div>
-            <h3 style="margin-top: 10px; color: grey; ">${bannerData.tagline}</h3>
+            <h2 style="margin-top: 10px; color: grey; ">${bannerData.tagline}</h2>
             <div class="release-date" >Release Date: ${bannerData.release_date}</div>
 
-            <span class="language">English</span>
+            <span class="language">${bannerData.production_countries[0].name} (${bannerData.original_language.toUpperCase()})</span>
         </div>
 
         <div class="about-movie">
@@ -108,7 +108,7 @@ function showMovies(data){
             <div class="bottom-text">
                <div class="movie-name">
 <!--                    <span>2021</span>-->
-                  <a href="movie.html?id=${id}">  <strong>${release_date} : ${title}</strong> </a>
+                  <a href="movie.html?id=${id}">  <strong>${release_date.substring(0,4)} : ${title}</strong> </a>
                 </div>
 
                 <div class="category-rating">

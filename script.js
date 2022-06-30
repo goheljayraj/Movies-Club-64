@@ -19,7 +19,7 @@ function showMovies(data){
     main.innerHTML = ' ';
     data.forEach(movie =>{
 
-        const{title, poster_path, vote_average, release_date, genre_ids} = movie;
+        const{id,title, poster_path, vote_average, release_date, genre_ids} = movie;
         console.log(genre_ids)
         const movieEl = document.createElement("div");
         movieEl.classList.add('swiper-slide')
@@ -34,7 +34,7 @@ function showMovies(data){
             <div class="bottom-text">
                 <div class="movie-name">
 <!--                    <span>2021</span>-->
-                    <strong>${release_date.substring(0,4)} : ${title}</strong>
+                    <a href="movie.html?id=${id}"><strong>${release_date.substring(0,4)} : ${title}</strong></a>
                 </div>
 
                 <div class="category-rating">
@@ -87,7 +87,7 @@ function getLatest(lrl){
 function topratedShow(topdata){
     post.innerHTML= ' ';
     topdata.forEach(topmovie => {
-        const {title, poster_path, vote_average, release_date, genre_ids} = topmovie;
+        const {id,title, poster_path, vote_average, release_date, genre_ids} = topmovie;
 
         const movieEl = document.createElement("div");
         movieEl.classList.add('post-box')
@@ -102,7 +102,7 @@ function topratedShow(topdata){
             <div class="bottom-text">
                 <div class="movie-name">
 <!--                    <span>2021</span>-->
-                    <strong>${release_date.substring(0,4)} : ${title}</strong>
+                   <a href="movie.html?id=${id}"> <strong>${release_date.substring(0,4)} : ${title}</strong> </a>
                 </div>
 
                 <div class="category-rating">
