@@ -250,7 +250,7 @@ a{
     color: #dfdfdf;
     letter-spacing: 0.5px;
 }
-.main-slider-txt .category-rating{
+.main-slider-txt .category-rating, .main-slider-txt .bottom-text .category-rating{
     color: #969696;
     font-size: 0.8rem;
     font-weight: 500;
@@ -259,10 +259,17 @@ a{
     justify-content: space-between;
 
 }
-.main-slider-txt .category-rating .category a{
-    color: crimson;
-    font-weight: 800;
 
+.main-slider-txt .category-rating .category a{
+    color: #ff07de;
+    font-weight: 600;
+    margin-left: 2px;
+
+}
+.bottom-text .category-rating.category a{
+    color: #ff07de;
+    font-weight: 600;
+    margin-left: 2px;
 }
 .category-rating .rating{
     /*padding: 2px 5px;*/
