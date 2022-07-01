@@ -4,7 +4,7 @@ const mID = urlParams.get('id');
 console.log(mID);
 
 const API_KEY = 'api_key=a86f1ad1d039e27d489a36607616522f';
-const URL = 'https://api.themoviedb.org/3/movie/'+mID+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1';
+const URL = 'https://api.themoviedb.org/3/movie/'+mID+'/similar?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&0;include_adult=false&page=1';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const main = document.getElementById('swiper-wrapper');
 let latestPages;
@@ -17,10 +17,17 @@ getBannerMovie(bannerMovieURL)
 function getBannerMovie(url){
     fetch(url).then(res => res.json()).then(bannerData =>{
         console.log(bannerData);
+        //Function which returns genere name if it exists.......
         function giveGenre(i){
             if(i<bannerData.genres.length) return bannerData.genres[i].name;
             else return "";
         }
+        //Function which returns genere ID if it exists.........
+        function giveGenreID(i){
+            if(i<bannerData.genres.length) return bannerData.genres[i].id;
+            else return "";
+        }
+
 
         document.getElementById('movie-banner').innerHTML = `
         <!--    Banner Image-->
@@ -47,11 +54,11 @@ function getBannerMovie(url){
             <div class="category">
                 Category:
                 
-                    <a href="">${giveGenre(0)}</a>
-                    <a href="">${giveGenre(1)}</a>
-                    <a href="">${giveGenre(2)}</a>
-                    <a href="">${giveGenre(3)}</a>
-                    <a href="">${giveGenre(4)}</a>
+                    <a href="tiles.html?gid=${giveGenreID(0)}">${giveGenre(0)}</a>
+                    <a href="tiles.html?gid=${giveGenreID(1)}">${giveGenre(1)}</a>
+                    <a href="tiles.html?gid=${giveGenreID(2)}">${giveGenre(2)}</a>
+                    <a href="tiles.html?gid=${giveGenreID(3)}">${giveGenre(3)}</a>
+                    <a href="tiles.html?gid=${giveGenreID(4)}">${giveGenre(4)}</a>
                   
                 
             </div>
@@ -113,10 +120,10 @@ function showMovies(data){
 
                 <div class="category-rating">
                     <div class="category">
-                    <a href="">${getGenre(genre_ids[0])}</a> 
-                    <a href="">${getGenre(genre_ids[1])}</a> 
-                    <a href="">${getGenre(genre_ids[2])}</a>
-                    <a href="">${getGenre(genre_ids[3])}</a>
+                    <a href="tiles.html?gid=${genre_ids[0]}">${getGenre(genre_ids[0])}</a> 
+                    <a href="tiles.html?gid=${genre_ids[1]}">${getGenre(genre_ids[1])}</a> 
+                    <a href="tiles.html?gid=${genre_ids[2]}">${getGenre(genre_ids[2])}</a>
+                    <a href="tiles.html?gid=${genre_ids[3]}">${getGenre(genre_ids[3])}</a>
                     </div>
                         
                     <div class="rating">

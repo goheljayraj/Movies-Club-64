@@ -628,3 +628,10 @@ footer .logo img{
     color: #969696;
     text-align: justify;
 }
+
+.tiles-container{
+    background-color: #969696;
+    height: 100%;
+    width: 100%;
+
+}
