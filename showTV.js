@@ -22,6 +22,12 @@ function getBannerMovie(url){
             else return "";
         }
 
+        //Function which returns genere ID if it exists.........
+        function giveGenreID(i){
+            if(i<bannerData.genres.length) return bannerData.genres[i].id;
+            else return "";
+        }
+
         document.getElementById('movie-banner').innerHTML = `
         <!--    Banner Image-->
          <div class="banner-img">
@@ -47,11 +53,11 @@ function getBannerMovie(url){
             <div class="category">
                 Category:
                 
-                    <a href="">${giveGenre(0)}</a>
-                    <a href="">${giveGenre(1)}</a>
-                    <a href="">${giveGenre(2)}</a>
-                    <a href="">${giveGenre(3)}</a>
-                    <a href="">${giveGenre(4)}</a>
+                    <a href="tvTiles.html?gid=${giveGenreID(0)}">${giveGenre(0)}</a>
+                    <a href="tvTiles.html?gid=${giveGenreID(1)}">${giveGenre(1)}</a>
+                    <a href="tvTiles.html?gid=${giveGenreID(2)}">${giveGenre(2)}</a>
+                    <a href="tvTiles.html?gid=${giveGenreID(3)}">${giveGenre(3)}</a>
+                    <a href="tvTiles.html?gid=${giveGenreID(4)}">${giveGenre(4)}</a>
                   
                 
             </div>
@@ -113,10 +119,10 @@ function showMovies(data){
 
                 <div class="category-rating">
                     <div class="category">
-                    <a href="">${getGenre(genre_ids[0])}</a> 
-                    <a href="">${getGenre(genre_ids[1])}</a> 
-                    <a href="">${getGenre(genre_ids[2])}</a>
-                    <a href="">${getGenre(genre_ids[3])}</a>
+                    <a href="tvTiles.html?gid=${genre_ids[0]}">${getGenre(genre_ids[0])}</a> 
+                    <a href="tvTiles.html?gid=${genre_ids[1]}">${getGenre(genre_ids[1])}</a> 
+                    <a href="tvTiles.html?gid=${genre_ids[2]}">${getGenre(genre_ids[2])}</a>
+                    <a href="tvTiles.html?gid=${genre_ids[3]}">${getGenre(genre_ids[3])}</a>
                     </div>
                         
                     <div class="rating">

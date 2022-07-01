@@ -38,10 +38,10 @@ function showMovies(data){
 
                 <div class="category-rating">
                     <div class="category">
-                     <a href="">${getGenre(genre_ids[0])}</a>
-                     <a href="">${getGenre(genre_ids[1])}</a>
-                     <a href="">${getGenre(genre_ids[2])}</a>
-                     <a href="">${getGenre(genre_ids[3])}</a>
+                     <a href="tvTiles.html?gid=${genre_ids[0]}">${getGenre(genre_ids[0])}</a>
+                     <a href="tvTiles.html?gid=${genre_ids[1]}">${getGenre(genre_ids[1])}</a>
+                     <a href="tvTiles.html?gid=${genre_ids[2]}">${getGenre(genre_ids[2])}</a>
+                     <a href="tvTiles.html?gid=${genre_ids[3]}">${getGenre(genre_ids[3])}</a>
 
                     </div>
 
@@ -103,9 +103,9 @@ function topratedShow(topdata){
 
                 <div class="category-rating">
                     <div class="category">
-                    <a href="">${getGenre(genre_ids[0])}</a>
-                     <a href="">${getGenre(genre_ids[1])}</a>
-                      <a href="">${getGenre(genre_ids[2])}</a>
+                    <a href="tvTiles.html?gid=${genre_ids[0]}">${getGenre(genre_ids[0])}</a>
+                     <a href="tvTiles.html?gid=${genre_ids[1]}">${getGenre(genre_ids[1])}</a>
+                      <a href="tvTiles.html?gid=${genre_ids[2]}">${getGenre(genre_ids[2])}</a>
                     </div>
 
                     <div class="rating">
