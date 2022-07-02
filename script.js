@@ -6,21 +6,27 @@ const main = document.getElementById('swiper-wrapper');
 let latestPages;
 let topPages;
 getMovies(URL)
+
+
+
+
 function getMovies(url){
     fetch(url).then(res => res.json()).then(data =>{
          showMovies(data.results);
          latestPages = data.total_pages;
-         console.log(data);
-         console.log(latestPages)
+         // console.log(data);
+         // console.log(latestPages)
     })
 }
+
+
 
 function showMovies(data){
     main.innerHTML = ' ';
     data.forEach(movie =>{
 
         const{id,title, poster_path, vote_average, release_date, genre_ids} = movie;
-        console.log(genre_ids)
+        // console.log(genre_ids)
         const movieEl = document.createElement("div");
         movieEl.classList.add('swiper-slide')
         movieEl.innerHTML = `
@@ -70,8 +76,8 @@ function getLatest(lrl){
     fetch(lrl).then(res => res.json()).then(data =>{
         topratedShow(data.results);
         topPages = data.total_pages;
-        console.log(data);
-        console.log(topPages)
+        // console.log(data);
+        // console.log(topPages)
     })
 }
 

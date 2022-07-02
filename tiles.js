@@ -1,8 +1,9 @@
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const genID = urlParams.get('gid');
+const srch = urlParams.get('search');
 console.log(genID);
-
+console.log(srch)
 document.getElementById('tiles-heading').innerText = `Movies: ${getGenre(genID)}`;
 
 
@@ -14,8 +15,15 @@ const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 
 
 const post = document.getElementById('post-container');
+let topURL = 'https://api.themoviedb.org/3/search/movie?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&query='+srch+'&page=1&include_adult=false';
+if(srch==null){
+    topURL = 'https://api.themoviedb.org/3/discover/movie?api_key=a86f1ad1d039e27d489a36607616522f&with_genres='+genID;
+}
 
-const topURL = 'https://api.themoviedb.org/3/discover/movie?api_key=a86f1ad1d039e27d489a36607616522f&with_genres='+genID;
+
+
+
+
 getLatest(topURL);
 function getLatest(lrl){
     fetch(lrl).then(res => res.json()).then(data =>{
