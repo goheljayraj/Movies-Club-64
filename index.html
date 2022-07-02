@@ -115,14 +115,10 @@
 <!--    Container ends here......-->
 
 <!--    Pagination......-->
-    <div class="page-number">
-        <a href="" class="page-active">1</a>
-        <a href="">2</a>
-        <a href="">3</a>
-        . . .
-        <a href="" id="last-page">100</a>
-
-    </div>
+<div class="page-navigation">
+    <a href="#" onclick="prevPage()" id="prev">PREV</a>
+    <a href="#" onclick="nextPage()">Next</a>
+</div>
 
 
 
@@ -164,7 +160,7 @@
                 spaceBetween: 40,
             },
             1024: {
-                slidesPerView: 3,
+                slidesPerView: 4,
                 spaceBetween: 50,
             },
         },

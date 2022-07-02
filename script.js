@@ -1,11 +1,60 @@
+
 const API_KEY = 'api_key=a86f1ad1d039e27d489a36607616522f';
 const BASE_URL = 'https://api.themoviedb.org/3';
-const URL = 'https://api.themoviedb.org/3/movie/popular?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1';
+let URL = 'https://api.themoviedb.org/3/movie/popular?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1';
 const IMG_URL = 'https://image.tmdb.org/t/p/w500';
 const main = document.getElementById('swiper-wrapper');
 let latestPages;
 let topPages;
-getMovies(URL)
+let topURL = 'https://api.themoviedb.org/3/movie/top_rated?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1';
+
+let page  = URL.substring(length-1,length);
+
+let prv = document.getElementById('prev');
+    if(page<2) {
+        prv.style.display= 'none';
+
+    }
+getMovies(URL);
+getLatest(topURL);
+
+function nextPage(){
+    let length = URL.length;
+    page  = URL.substring(length-1,length);
+
+    URL = 'https://api.themoviedb.org/3/movie/popular?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page='+(+page+1);
+    getMovies(URL)
+    console.log(page);
+    console.log(URL);
+    let length2 = topURL.length;
+    topURL = 'https://api.themoviedb.org/3/movie/top_rated?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page='+(+page+1);
+    getLatest(topURL);
+
+    if(page==1) {
+        prv.style.display='block';
+
+
+    }
+
+}
+function prevPage(){
+    let length = URL.length;
+    page  = URL.substring(length-1,length);
+
+    URL = 'https://api.themoviedb.org/3/movie/popular?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page='+(+page-1);
+    getMovies(URL)
+    console.log(page);
+    console.log(URL);
+    let length2 = topURL.length;
+    topURL = 'https://api.themoviedb.org/3/movie/top_rated?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page='+(+page-1);
+    getLatest(topURL);
+    if(page==2) {
+        prv.style.display='none';
+    }
+
+
+}
+
 
 
 
@@ -70,8 +119,7 @@ function showMovies(data){
 
 const post = document.getElementById('post-container');
 
-const topURL = 'https://api.themoviedb.org/3/movie/top_rated?api_key=a86f1ad1d039e27d489a36607616522f&language=en-US&page=1';
-getLatest(topURL);
+
 function getLatest(lrl){
     fetch(lrl).then(res => res.json()).then(data =>{
         topratedShow(data.results);
